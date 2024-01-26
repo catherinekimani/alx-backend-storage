@@ -18,6 +18,7 @@ def count_calls(method: Callable) -> Callable:
 
 
 def call_history(method: Callable) -> Callable:
+    """ generate keys for inputs and outputs """
     inputKey = method.__qualname__ + ":inputs"
     outputKey = method.__qualname__ + ":outputs"
 
