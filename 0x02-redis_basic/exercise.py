@@ -35,8 +35,8 @@ def replay(method: Callable) -> None:
     """ generate keys for inputs and outputs """
     inputs_key = "{}:inputs".format(method.__qualname__)
     outputs_key = "{}:outputs".format(method.__qualname__)
-    inputs_history = method.__self__._redis.lrange(inputs_key, 0 - 1)
-    outputs_history = method.__self__._redis.lrange(outputs_key, 0 - 1)
+    inputs_history = method.__self__._redis.lrange(inputs_key, 0, -1)
+    outputs_history = method.__self__._redis.lrange(outputs_key, 0, -1)
 
     print("{} was called {} times:".format(
         method.__qualname__, len(inputs_history)))
