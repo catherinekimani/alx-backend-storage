@@ -33,7 +33,7 @@ def call_history(method: Callable) -> Callable:
 
 
 def replay(method: Callable) -> None:
-    """ generate keys for inputs and outputs """
+    """ Generate keys for inputs and outputs """
     inputs_key = "{}:inputs".format(method.__qualname__)
     outputs_key = "{}:outputs".format(method.__qualname__)
     inputs_history = method.__self__._redis.lrange(inputs_key, 0, -1)
