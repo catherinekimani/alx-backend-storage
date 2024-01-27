@@ -51,6 +51,7 @@ def replay(method: Callable) -> None:
 
 
 class Cache:
+    """ Cache class """
     def __init__(self):
         """ Initialize redis & flush db """
         self._redis = redis.Redis()
