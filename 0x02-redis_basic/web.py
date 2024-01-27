@@ -21,7 +21,7 @@ def track_get_page(fn: Callable) -> Callable:
         if cachedPage:
             return cachedPage.decode('utf-8')
         response = fn(url)
-        redisClient.set(f'{url}', response, 10)
+        redisClient.setex(f'{url}', 10, response)
         return response
 
     return wrapper

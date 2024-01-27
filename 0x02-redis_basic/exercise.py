@@ -9,7 +9,7 @@ from functools import wraps
 
 
 def count_calls(method: Callable) -> Callable:
-
+    """  Incrementing values """
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         """ generate a key """
